@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "76820756-d9fb-4b27-96b9-2b4e04406454",
+		"name": "Reqres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41752550"
+	},
+	"item": [
+		{
+			"name": "List User",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Single User",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Single User Update test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains email\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"email\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains first Name\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"first_name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains Last Name\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"last_name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains avatar\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"avatar\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Same first Name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data.first_name).to.eql(\"Peter\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/users/{{userIdUpdate}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"users",
+						"{{userIdUpdate}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Peter\",\r\n    \"job\": \"Lead\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/users/{{userIdUpdate}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"users",
+						"{{userIdUpdate}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
